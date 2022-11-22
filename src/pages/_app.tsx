@@ -1,6 +1,6 @@
 import { type AppType } from "next/app";
 
-import { trpcUtils } from "../utils/trpcUtils";
+import { trpcRouter } from "../utils/trpcRouter";
 
 import "../styles/globals.css";
 
@@ -8,4 +8,4 @@ const MyApp: AppType = ({ Component, pageProps }) => {
   return <Component {...pageProps} />;
 };
 
-export default trpcUtils.withTRPC(MyApp);
+export default trpcRouter.withTRPC(MyApp);

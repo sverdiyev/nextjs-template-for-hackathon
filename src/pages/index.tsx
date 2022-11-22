@@ -3,10 +3,10 @@ import { type NextPage } from "next";
 import Head from "next/head";
 import Link from "next/link";
 
-import { trpcUtils } from "../utils/trpcUtils";
+import { trpcRouter } from "../utils/trpcRouter";
 
 const Home: NextPage = () => {
-  const hello = trpcUtils.example.hello.useQuery({ text: "from tRPC" });
+  const hello = trpcRouter.example.hello.useQuery({ text: "from tRPC" });
 
   return (
     <>
