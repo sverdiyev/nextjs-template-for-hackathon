@@ -1,5 +1,5 @@
-import { router } from "../trpc";
-import { exampleRouter } from "./example";
+import { router } from "../trpcConfig";
+import { exampleRouter } from "./exampleRouter";
 
 export const appRouter = router({
   example: exampleRouter,
