@@ -16,4 +16,15 @@ export const exampleRouter = router({
   exampleQuery: publicProcedure.query(() => {
     return { exampleOfNewQuery: "hey, im an example of trpc query" };
   }),
+  exampleMutationWithDb: publicProcedure
+    .input(z.string().min(1))
+    .mutation(async ({ ctx, input }) => {
+      const createdUser = await ctx.prisma.user.create({
+        data: { Name: input },
+      });
+      return { createdUser: createdUser };
+    }),
+  getAllUsers: publicProcedure.query(({ ctx }) => {
+    return ctx.prisma.user.findMany();
+  }),
 });
